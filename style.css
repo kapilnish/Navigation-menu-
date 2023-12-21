@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #282a36;
+}
+
+.navigation {
+  position: relative;
+  width: 400px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  border-radius: 10px;
+}
+
+.navigation ul {
+  position: relative;
+  display: flex;
+  width: 350px;
+}
+
+.navigation ul li {
+  position: relative;
+  list-style: none;
+  width: 70px;
+  height: 70px;
+  z-index: 1;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  font-size: 1.5em;
+  line-height: 75px;
+  transition: 0.5s;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.navigation ul li:hover a .icon {
+  color: rgba(255, 255, 255, 1);
+}
+
+.navigation ul li.active a .icon {
+  transform: translateY(-8px);
+  color: #29fd53;
+}
+
+.navigation ul li a .text {
+  position: absolute;
+  opacity: 0;
+  font-weight: 600;
+  font-size: 0.5em;
+  color: #222327;
+  transition: 0.5s;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transform: translateY(0px);
+}
+
+.navigation ul li.active a .text {
+  transform: translateY(13px);
+  opacity: 1;
+}
+
+.indicator {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.indicator::before {
+  content: "";
+  position: absolute;
+  bottom: 13px;
+  width: 80%;
+  height: 14px;
+  background: #29fd53;
+  border-radius: 10px;
+}
+
+.indicator::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  width: 7.5px;
+  height: 7.5px;
+  border-radius: 50%;
+  background: #333;
+  box-shadow: 0 0 0 2px #29fd53, 50px 50px #29fd53, 40px 0 #29fd53,
+    0 40px #29fd53;
+  transform: rotate(45deg);
+  animation: animate 2s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    transform: rotate(35deg);
+  }
+  50% {
+    transform: rotate(55deg);
+  }
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(70px * 1));
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(70px * 2));
+}
+
+.navigation ul li:nth-child(4).active ~ .indicator {
+  transform: translateX(calc(70px * 3));
+}
+
+.navigation ul li:nth-child(5).active ~ .indicator {
+  transform: translateX(calc(70px * 4));
+}
